@@ -1,0 +1,22 @@
+{
+  "name": "LibraryManagementSystem",
+  "version": "1.0.0",
+  "authors": [
+    "Furkan Zumrut <furkan@furkanzumrut.com>"
+  ],
+  "description": "Simple Library Management System",
+  "main": "index.html",
+  "license": "MIT",
+  "homepage": "www.furkanzumrut.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/main/webapp/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-re-captcha": "~0.2.0"
+  }
+}

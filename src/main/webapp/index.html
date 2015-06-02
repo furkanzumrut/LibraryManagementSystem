@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Library Management System</title>
+  <link rel="stylesheet"
+  href="./bower_components/angular-material/angular-material.css">
+</head>
+
+<body ng-app="libraryManagementApp" ng-cloak ng-controller="bookController">
+
+
+	<div layout="row" layout-wrap>
+
+
+
+   <div flex="100">
+     <md-toolbar>
+     <div class="md-toolbar-tools">
+      <md-button class="md-icon-button" aria-label="Settings"> 
+    </md-button>
+    <h2>
+     <span class="md-title">Library Management System</span>
+   </h2>
+ </div>
+ <md-divider></md-divider>
+</md-toolbar> <!-- The content area -->
+
+</div>
+
+<!-- 20% padding to the left -->
+<div flex="25">
+  <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+  <md-toolbar>
+  <h1 class="md-toolbar-tools"> <ng-md-icon  class="md-avatar" icon="menu" size="44" style="fill:white"></ng-md-icon>Menu</h1>
+</md-toolbar>
+<md-content flex>
+<md-list>
+<md-divider></md-divider>
+<md-list-item><md-button class="md-primary" ng-click="addingDialog()">Add a New Book</md-button></md-list-item>
+
+</md-content>
+
+</md-list>
+
+</md-sidenav>
+</div>
+<div flex="65">
+  <md-list>
+  
+  <md-divider></md-divider>
+
+  <md-subheader class="md-no-sticky">List of Books</md-subheader>
+
+  
+
+
+  <md-list-item class="md-2-line" ng-repeat="book in books">
+
+  <ng-md-icon  class="md-avatar" icon="my_library_books" size="50"></ng-md-icon>
+  <div class="md-list-item-text">
+    <h3>{{book.bookName}}</h3>
+    <p>
+      {{book.authorName}}
+    </p>
+  </div>
+  <div ><md-button  ng-style="{'background-color': 'red'}" class="md-raised md-primary" ng-click="deleteConfirm(book)" aria-label="Delete">
+        <md-tooltip>
+          Click button to delete this book easily.
+        </md-tooltip>DELETE</md-button></div>
+  <md-button  class="md-raised md-primary" ng-click="editDialog(book)" aria-label="Edit"><md-tooltip>
+          Click button to edit this book easily.
+        </md-tooltip>EDIT</md-button>
+
+</md-list-item>
+
+
+</md-list>
+
+</div>
+<div flex="100"></div>
+<div flex="100">
+ <md-toolbar>
+ <md-divider></md-divider>
+ <div class="md-toolbar-tools">
+
+ </div>
+</md-toolbar> <!-- The content area -->
+</div>
+</div>
+
+
+
+<script src="./bower_components/angular/angular.js"></script>
+<script src="./bower_components/angular-aria/angular-aria.js"></script>
+<script src="./bower_components/angular-animate/angular-animate.js"></script>
+<script src="./bower_components/angular-material/angular-material.js"></script>
+<script src="./bower_components/angular-re-captcha/angular-re-captcha.js"></script>
+
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular-resource.js"></script>
+
+<script src="./js/app.js"></script>
+<script src="./js/services.js"></script>
+<script src="./js/controllers.js"></script>
+<script src="//cdn.jsdelivr.net/angular-material-icons/0.4.0/angular-material-icons.min.js"></script> 
+<link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.7.1/loading-bar.min.css' type='text/css' media='all' />
+<script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.7.1/loading-bar.min.js'></script>
+</body>
+
+</html>
