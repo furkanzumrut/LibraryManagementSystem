@@ -1,0 +1,8 @@
+com/librarymanagementsystem/service/BookService.class
+com/librarymanagementsystem/Application.class
+com/librarymanagementsystem/web/rest/BookResource.class
+com/librarymanagementsystem/config/MongoConfiguration.class
+com/librarymanagementsystem/domain/Book.class
+com/librarymanagementsystem/web/controller/IndexController.class
+com/librarymanagementsystem/repositories/BookRepository.class
+com/librarymanagementsystem/config/ApplicationConfig.class
