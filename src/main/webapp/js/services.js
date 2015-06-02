@@ -23,6 +23,9 @@ app.factory('bookFactory', ['$http', function($http) {
 		return $http.delete(urlBase + '/delete/' + bookId);
 	};
 
+   bookFactory.validate = function (resp) {
+		return $http.post(urlBase + '/validate',resp);
+	};
 
 	return bookFactory;
 }]);

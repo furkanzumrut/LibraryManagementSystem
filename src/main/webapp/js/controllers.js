@@ -1,5 +1,5 @@
 app.controller('bookController', ['$mdToast','$mdDialog','$scope', 'bookFactory', 
-    function ($mdToast,$mdDialog,$scope, bookFactory, reCAPTCHA) {
+    function ($mdToast,$mdDialog,$scope, bookFactory, vcRecaptchaService) {
 
         $scope.status;
         $scope.books;
@@ -109,7 +109,7 @@ app.controller('bookController', ['$mdToast','$mdDialog','$scope', 'bookFactory'
           // use 'vm.<xxx>' in the template markup
           template: '<md-dialog>' +
           '  <md-dialog-content>' +
-          '<form ng-submit="submit(booktmp2)" name="addingForm" role="form" novalidate>'+
+          '<form  name="addingForm" role="form" novalidate>'+
           '<md-input-container flex>'+
           '<label>Book Name</label>'+
           '<input type="text" ng-model="booktmp2.bookName" name="bookName" required />'+
@@ -122,7 +122,7 @@ app.controller('bookController', ['$mdToast','$mdDialog','$scope', 'bookFactory'
           '<md-button class="md-raised md-primary" ng-click="closeDialog()" class="md-primary">'+
           'Cancel'+
           '</md-button>'+
-          '<md-button type="submit"  class="md-raised md-primary" ng-disabled="addingForm.$invalid" class="md-primary">'+
+          '<md-button type="submit"  ng-click="submit(booktmp2)" class="md-raised md-primary" ng-disabled="addingForm.$invalid" class="md-primary">'+
           'Add'+
           '</md-button>'+
           '</form>'+
@@ -143,6 +143,7 @@ app.controller('bookController', ['$mdToast','$mdDialog','$scope', 'bookFactory'
             $scope.submit = function(booktmp2) {
               var valid;
                     console.log('sending the captcha response to the server', $scope.response);
+                    valid = bookFactory.validate($scope.response);
                     if (valid) {
                         console.log('Success');
                         console.log(booktmp2);
@@ -158,6 +159,7 @@ app.controller('bookController', ['$mdToast','$mdDialog','$scope', 'bookFactory'
               
           }
           $scope.closeDialog = function() {
+            $scope.booktmp2 = $scope.initial;
               $mdDialog.hide();
           }
       }

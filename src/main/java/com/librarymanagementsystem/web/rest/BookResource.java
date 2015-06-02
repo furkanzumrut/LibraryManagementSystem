@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.librarymanagementsystem.domain.Book;
+import com.librarymanagementsystem.helper.CaptchaHelper;
 import com.librarymanagementsystem.service.BookService;
 
 import java.util.List;
@@ -69,6 +70,26 @@ public class BookResource {
         return bookService.save(book);
     }
 
+    /**
+     * 
+     * @param bookId
+     * @return 
+     */
+    
+    @RequestMapping(value = "validate", method = RequestMethod.POST)
+    public ResponseEntity<Boolean> validateCaptcha(@RequestBody String resp) {
+        Boolean valid = false;
+    	try {
+			valid = new CaptchaHelper().validateCaptcha(resp);
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
+    	
+    	if(valid) {return new ResponseEntity<Boolean>(Boolean.TRUE, HttpStatus.OK);}
+    	else {return new ResponseEntity<Boolean>(Boolean.FALSE, HttpStatus.OK);}
+    }
+    
     /**
      * 
      * @param bookId
