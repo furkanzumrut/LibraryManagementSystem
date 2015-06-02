@@ -15,20 +15,28 @@ import com.mongodb.ServerAddress;
 @EnableMongoRepositories
 public class MongoConfiguration extends AbstractMongoConfiguration {
 
-    @Override
-    protected String getDatabaseName() {
-        return "heroku_app37356552";
-    }
+	private static final String database = "heroku_app37442521";
+	private static final String serverName = "ds053529.mongolab.com:53529";
+	private static final String userName = "heroku_rebios";
+	private static final String userPassword = "199300";
+	private static final String basePackage = "com.librarymanagementsystem.domain";
 
-    @Override
-    public Mongo mongo() throws Exception {
-    	MongoCredential credential = MongoCredential.createMongoCRCredential("heroku_rebios", getDatabaseName(), "199300".toCharArray());
+	@Override
+	protected String getDatabaseName() {
+		return database;
+	}
 
-        return new MongoClient(new ServerAddress("ds031631.mongolab.com:31631"),Arrays.asList(credential));
-    }
+	@Override
+	public Mongo mongo() throws Exception {
+		MongoCredential credential = MongoCredential.createMongoCRCredential(
+				userName, database, userPassword.toCharArray());
 
-    @Override
-    protected String getMappingBasePackage() {
-        return "com.librarymanagementsystem.domain";
-    }
+		return new MongoClient(new ServerAddress(serverName),
+				Arrays.asList(credential));
+	}
+
+	@Override
+	protected String getMappingBasePackage() {
+		return basePackage;
+	}
 }
