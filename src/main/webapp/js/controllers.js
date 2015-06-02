@@ -181,7 +181,7 @@ $scope.editDialog = function(book) {
           // use 'vm.<xxx>' in the template markup
           template: '<md-dialog>' +
           '  <md-dialog-content>' +
-          '<form>'+
+          '<form name="EditingForm" role="form" novalidate>'+
           '<md-input-container flex>'+
           '<label>Book Name</label>'+
           '<input type="text" ng-model="booktmp.bookName" name="bookName" required></input>'+
@@ -193,7 +193,7 @@ $scope.editDialog = function(book) {
           '<md-button class="md-raised md-primary" ng-click="closeDialog()" class="md-primary">'+
           'Cancel'+
           '</md-button>'+
-          '<md-button class="md-raised md-primary" ng-click="submit(booktmp)" class="md-primary">'+
+          '<md-button type="submit" class="md-raised md-primary" ng-click="submit(booktmp)" ng-disabled="EditingForm.$invalid" class="md-primary">'+
           'Edit'+
           '</md-button>'+
           '</form>'+
