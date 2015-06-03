@@ -1,3 +1,3 @@
 # LibraryManagementSystem
 
-Spring MVC + MongoDB + AngularJS Material
+Spring MVC + Spring Data + Spring Boot + MongoDB + AngularJS Material
