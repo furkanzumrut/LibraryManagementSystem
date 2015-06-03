@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.librarymanagementsystem.domain.Book;
+import com.librarymanagementsystem.exceptions.BookNotFoundException;
 import com.librarymanagementsystem.helper.CaptchaHelper;
 import com.librarymanagementsystem.service.BookService;
 
@@ -43,11 +44,6 @@ public class BookResource {
         return bookService.findAll();
     }
 
-
-    @RequestMapping("/hello")
-    public String hello() {
-        return "hello";
-    }
     
     /**
      * 
@@ -55,25 +51,37 @@ public class BookResource {
      * @return It returns book object according to id.
      */
     @RequestMapping("{bookId}")
-    public Book get(@PathVariable("bookId") String bookId) {
-        return bookService.get(bookId);
+    public ResponseEntity<Book> get(@PathVariable("bookId") String bookId) throws BookNotFoundException{
+    	Book book;
+    	try {
+        	book = bookService.get(bookId);
+        	if(book == null) throw new BookNotFoundException();
+		} catch (BookNotFoundException e) {
+			return new ResponseEntity<Book>(HttpStatus.NOT_FOUND);
+		}
+    	return new ResponseEntity<Book>(book,HttpStatus.OK);
     }
 
     /**
      * 
      * @param book
-     * @return 
+     * @return It returns saved object.
      */
     @RequestMapping(value = "save",method = RequestMethod.POST)
-    public Book save(@RequestBody @Valid Book book) {
-    	
-        return bookService.save(book);
+    public ResponseEntity<Book> save(@RequestBody @Valid Book book) {
+    	try {
+    		bookService.save(book);
+		} catch (Exception e) {
+			log.warn(e.getMessage());
+			return new ResponseEntity<Book>(HttpStatus.NOT_FOUND);
+		}
+    	return new ResponseEntity<Book>(book,HttpStatus.OK);
     }
 
     /**
      * 
      * @param bookId
-     * @return 
+     * @return It returns true if validation is successful.
      */
     
     @RequestMapping(value = "validate", method = RequestMethod.POST)
@@ -82,8 +90,7 @@ public class BookResource {
     	try {
 			valid = new CaptchaHelper().validateCaptcha(resp);
 		} catch (Exception e) {
-			
-			e.printStackTrace();
+			log.warn(e.getMessage());
 		}
     	
     	if(valid) {return new ResponseEntity<Boolean>(Boolean.TRUE, HttpStatus.OK);}
@@ -97,19 +104,29 @@ public class BookResource {
      */
     @RequestMapping(value = "delete/{bookId}", method = RequestMethod.DELETE)
     public ResponseEntity<Boolean> delete(@PathVariable("bookId") String bookId) {
-        bookService.delete(bookId);
+        try {
+			bookService.delete(bookId);
+		} catch (Exception e) {
+			return new ResponseEntity<Boolean>(Boolean.FALSE, HttpStatus.OK);
+		}
         return new ResponseEntity<Boolean>(Boolean.TRUE, HttpStatus.OK);
     }
     
     /**
      * 
-     * @param book
-     * @return 
+     * @param book 
+     * @param bookId Book will be updated according to bookId
+     * @return It returns book object if it saves object.
      */
     @RequestMapping(value = "update/{bookId}",method = RequestMethod.PUT)
-    public Book update(@PathVariable("bookId") String bookId, @RequestBody @Valid Book book) {
-    	
-        return bookService.save(book);
+    public ResponseEntity<Book> update(@PathVariable("bookId") String bookId, @RequestBody @Valid Book book) {
+    	try {
+    		bookService.save(book);
+		} catch (Exception e) {
+			log.warn(e.getMessage());
+			return new ResponseEntity<Book>(HttpStatus.NOT_FOUND);
+		}
+    	return new ResponseEntity<Book>(book,HttpStatus.OK);
     }  
 
 }

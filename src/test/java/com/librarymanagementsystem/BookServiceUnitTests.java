@@ -1,11 +1,18 @@
 package com.librarymanagementsystem;
 
+import java.util.List;
+
+import javax.validation.constraints.AssertTrue;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 
+import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.stubbing.Answer;
 import org.springframework.boot.test.IntegrationTest;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.annotation.DirtiesContext;
@@ -32,6 +39,8 @@ public class BookServiceUnitTests {
 
 	// Creating Mock object for BookService
 	private BookService bookServiceMock;
+	
+	
 
 	@Test
 	public void testSave() {
@@ -43,7 +52,8 @@ public class BookServiceUnitTests {
 
 	@Test
 	public void testFindAll() {
-		// TODO: Do it later.
+
+		
 	}
 
 	@Test
