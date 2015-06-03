@@ -112,11 +112,11 @@ app.controller('bookController', ['$mdToast','$mdDialog','$scope', 'bookFactory'
           '<form  name="addingForm" role="form" novalidate>'+
           '<md-input-container flex>'+
           '<label>Book Name</label>'+
-          '<input type="text" ng-model="booktmp2.bookName" name="bookName" required />'+
+          '<input type="text" ng-model="booktmp2.bookName" name="bookName" required ng-minlength="2" ng-maxlength="128" />'+
           '</md-input-container>'+
           '<md-input-container flex>'+
           '<label>Author Name</label>'+
-          '<input type="text" ng-model="booktmp2.authorName" name="authorName" required />'+
+          '<input type="text" ng-model="booktmp2.authorName" name="authorName" required ng-minlength="2" ng-maxlength="128" />'+
           '</md-input-container>'+ 
           '<div vc-recaptcha key="\'6Lf3wgcTAAAAAOsHQVbAeZGBFemm3BMLj4SFx_oD\'" on-create="setWidgetId(widgetId)" on-success="setResponse(response)"></div>'+
           '<md-button class="md-raised md-primary" ng-click="closeDialog()" class="md-primary">'+
@@ -184,11 +184,11 @@ $scope.editDialog = function(book) {
           '<form name="EditingForm" role="form" novalidate>'+
           '<md-input-container flex>'+
           '<label>Book Name</label>'+
-          '<input type="text" ng-model="booktmp.bookName" name="bookName" required></input>'+
+          '<input type="text" ng-model="booktmp.bookName" name="bookName" required ng-minlength="2" ng-maxlength="128"></input>'+
           '</md-input-container>'+
           '<md-input-container flex>'+
           '<label>Author Name</label>'+
-          '<input type="text" ng-model="booktmp.authorName" name="authorName" required />'+
+          '<input type="text" ng-model="booktmp.authorName" name="authorName" required ng-minlength="2" ng-maxlength="128" />'+
           '</md-input-container>'+ 
           '<md-button class="md-raised md-primary" ng-click="closeDialog()" class="md-primary">'+
           'Cancel'+
