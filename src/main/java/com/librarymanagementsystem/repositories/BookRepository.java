@@ -20,14 +20,14 @@ public interface BookRepository extends MongoRepository<Book, String> {
 	 * @param bookName
 	 * @return It returns Book List according to BookName.
 	 */
-    public List<Book> findByBookName(String bookName);
+    List<Book> findByBookName(String bookName);
     
     /**
      * 
      * @param authorName
      * @return It returns Author List according to AuthorName.
      */
-    public List<Book> findByAuthorName(String authorName);
+    List<Book> findByAuthorName(String authorName);
     
     
 

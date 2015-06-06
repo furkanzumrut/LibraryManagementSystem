@@ -16,7 +16,7 @@ describe 'loadingBarInterceptor Service', ->
   beforeEach ->
     module 'ngAnimateMock', 'chieffancypants.loadingBar', (cfpLoadingBarProvider) ->
       loadingBar = cfpLoadingBarProvider
-      return
+
 
     result = null
     inject (_$http_, _$httpBackend_, _$document_, _$timeout_, _$animate_) ->
@@ -502,7 +502,7 @@ describe 'Interceptor tests', ->
         provider.interceptors.push ->
           response: (resp) ->
             return null
-        return
+
 
       inject (_$http_, _$httpBackend_, _$log_) ->
         $http = _$http_
@@ -529,7 +529,7 @@ describe 'Interceptor tests', ->
             responseError: (resp) ->
               delete resp.config
               $q.reject(resp);
-          return
+
 
         inject (_$http_, _$httpBackend_, _$log_) ->
           $http = _$http_

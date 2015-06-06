@@ -1,4 +1,6 @@
+com/librarymanagementsystem/exceptions/BookNotFoundException.class
 com/librarymanagementsystem/service/BookService.class
+com/librarymanagementsystem/helper/CaptchaHelper.class
 com/librarymanagementsystem/Application.class
 com/librarymanagementsystem/web/rest/BookResource.class
 com/librarymanagementsystem/config/MongoConfiguration.class

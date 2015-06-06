@@ -2329,8 +2329,7 @@ function InterimElementProvider() {
     function attach(scope, element, options) {
       var elementOptions = optionsForElement(element);
       return $mdInkRipple.attach(scope, element, angular.extend(elementOptions, options));
-    };
-
+    }
     function optionsForElement(element) {
       if (element.hasClass('md-icon-button')) {
         return {
@@ -2344,9 +2343,9 @@ function InterimElementProvider() {
           dimBackground: true
         }
       }
-    };
+    }
   }
-  MdButtonInkRipple.$inject = ["$mdInkRipple"];;
+  MdButtonInkRipple.$inject = ["$mdInkRipple"];
 })();
 
 })();
@@ -2383,9 +2382,9 @@ function InterimElementProvider() {
         dimBackground: false,
         fitRipple: true
       }, options));
-    };
+    }
   }
-  MdCheckboxInkRipple.$inject = ["$mdInkRipple"];;
+  MdCheckboxInkRipple.$inject = ["$mdInkRipple"];
 })();
 
 })();
@@ -2423,9 +2422,9 @@ function InterimElementProvider() {
         outline: false,
         rippleSize: 'full'
       }, options));
-    };
+    }
   }
-  MdListInkRipple.$inject = ["$mdInkRipple"];;
+  MdListInkRipple.$inject = ["$mdInkRipple"];
 })();
 
 })();
@@ -2852,9 +2851,9 @@ function attrNoDirective() {
         outline: false,
         rippleSize: 'full'
       }, options));
-    };
+    }
   }
-  MdTabInkRipple.$inject = ["$mdInkRipple"];;
+  MdTabInkRipple.$inject = ["$mdInkRipple"];
 })();
 
 })();
@@ -8025,7 +8024,7 @@ function SelectDirective($mdSelect, $mdUtil, $mdTheming, $mdAria, $interpolate, 
       $mdTheming(element);
 
       if (attr.name && formCtrl) {
-        var selectEl = element.parent()[0].querySelector('select[name=".' + attr.name + '"]')
+        var selectEl = element.parent()[0].querySelector('select[name=".' + attr.name + '"]');
         formCtrl.$removeControl(angular.element(selectEl).controller());
       }
 

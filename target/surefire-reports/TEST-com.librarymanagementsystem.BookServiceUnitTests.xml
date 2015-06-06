@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.librarymanagementsystem.BookServiceUnitTests" time="0.523" tests="4" errors="0" skipped="0" failures="0">
+<testsuite name="com.librarymanagementsystem.BookServiceUnitTests" time="0.689" tests="5" errors="2" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home/jre/lib"/>
@@ -60,8 +60,63 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="testFindByBookName" classname="com.librarymanagementsystem.BookServiceUnitTests" time="0.002"/>
-  <testcase name="testFindAll" classname="com.librarymanagementsystem.BookServiceUnitTests" time="0"/>
-  <testcase name="testSave" classname="com.librarymanagementsystem.BookServiceUnitTests" time="0.521"/>
-  <testcase name="testDeleteBook" classname="com.librarymanagementsystem.BookServiceUnitTests" time="0"/>
+  <testcase name="testRest" classname="com.librarymanagementsystem.BookServiceUnitTests" time="0.566">
+    <error message="I/O error on GET request for &quot;http://localhost:8080/rest/book/&quot;:Connection refused; nested exception is java.net.ConnectException: Connection refused" type="org.springframework.web.client.ResourceAccessException"><![CDATA[org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8080/rest/book/":Connection refused; nested exception is java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:345)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:180)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:432)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:527)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:211)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:308)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:326)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1168)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1104)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:998)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:932)
+	at org.springframework.http.client.SimpleBufferingClientHttpRequest.executeInternal(SimpleBufferingClientHttpRequest.java:78)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:52)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:551)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:512)
+	at org.springframework.web.client.RestTemplate.getForEntity(RestTemplate.java:268)
+	at com.librarymanagementsystem.BookServiceUnitTests.testRest(BookServiceUnitTests.java:79)
+]]></error>
+  </testcase>
+  <testcase name="testSave" classname="com.librarymanagementsystem.BookServiceUnitTests" time="0.113"/>
+  <testcase name="testWillGetMethodGive404WhenBookNotFound" classname="com.librarymanagementsystem.BookServiceUnitTests" time="0.009">
+    <error message="I/O error on GET request for &quot;http://localhost:8080/rest/book/get/11111&quot;:Connection refused; nested exception is java.net.ConnectException: Connection refused" type="org.springframework.web.client.ResourceAccessException"><![CDATA[org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8080/rest/book/get/11111":Connection refused; nested exception is java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:345)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:180)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:432)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:527)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:211)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:308)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:326)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1168)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1104)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:998)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:932)
+	at org.springframework.http.client.SimpleBufferingClientHttpRequest.executeInternal(SimpleBufferingClientHttpRequest.java:78)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:52)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:551)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:512)
+	at org.springframework.web.client.RestTemplate.getForEntity(RestTemplate.java:268)
+	at com.librarymanagementsystem.BookServiceUnitTests.testWillGetMethodGive404WhenBookNotFound(BookServiceUnitTests.java:89)
+]]></error>
+  </testcase>
+  <testcase name="testGetById" classname="com.librarymanagementsystem.BookServiceUnitTests" time="0"/>
+  <testcase name="testDeleteBook" classname="com.librarymanagementsystem.BookServiceUnitTests" time="0.001"/>
 </testsuite>

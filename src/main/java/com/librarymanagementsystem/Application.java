@@ -8,9 +8,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 
-
 /**
  * Class for Application to run with Spring Boot
+ *
  * @author furkanzumrut
  */
 @Configuration
@@ -20,6 +20,7 @@ public class Application extends SpringBootServletInitializer {
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+
         return application.sources(Application.class);
     }
 
@@ -32,8 +33,7 @@ public class Application extends SpringBootServletInitializer {
         System.setProperty("server.port", webPort);
         SpringApplication.run(Application.class, args);
     }
-    
-    
+
 
 }
  

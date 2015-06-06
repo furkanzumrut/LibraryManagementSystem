@@ -35,7 +35,7 @@ angular.module('LoadingBarExample', ['chieffancypants.loadingBar', 'ngAnimate'])
 
     $scope.complete = function () {
       cfpLoadingBar.complete();
-    }
+    };
 
 
     // fake the initial load so first time users can see it right away:

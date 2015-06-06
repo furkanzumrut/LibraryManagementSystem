@@ -2,7 +2,9 @@
 /Users/furkanzumrut/EclipseProjects/LibraryManagementSystem/src/main/java/com/librarymanagementsystem/web/rest/BookResource.java
 /Users/furkanzumrut/EclipseProjects/LibraryManagementSystem/src/main/java/com/librarymanagementsystem/config/MongoConfiguration.java
 /Users/furkanzumrut/EclipseProjects/LibraryManagementSystem/src/main/java/com/librarymanagementsystem/web/controller/IndexController.java
+/Users/furkanzumrut/EclipseProjects/LibraryManagementSystem/src/main/java/com/librarymanagementsystem/exceptions/BookNotFoundException.java
 /Users/furkanzumrut/EclipseProjects/LibraryManagementSystem/src/main/java/com/librarymanagementsystem/Application.java
+/Users/furkanzumrut/EclipseProjects/LibraryManagementSystem/src/main/java/com/librarymanagementsystem/helper/CaptchaHelper.java
 /Users/furkanzumrut/EclipseProjects/LibraryManagementSystem/src/main/java/com/librarymanagementsystem/config/ApplicationConfig.java
 /Users/furkanzumrut/EclipseProjects/LibraryManagementSystem/src/main/java/com/librarymanagementsystem/repositories/BookRepository.java
 /Users/furkanzumrut/EclipseProjects/LibraryManagementSystem/src/main/java/com/librarymanagementsystem/service/BookService.java

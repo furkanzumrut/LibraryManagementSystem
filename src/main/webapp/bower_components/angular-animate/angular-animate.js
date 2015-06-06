@@ -26,7 +26,7 @@ var NG_ANIMATE_CHILDREN_DATA = '$$ngAnimateChildren';
 
 var isPromiseLike = function(p) {
   return p && p.then ? true : false;
-}
+};
 
 function assertArg(arg, name, reason) {
   if (!arg) {

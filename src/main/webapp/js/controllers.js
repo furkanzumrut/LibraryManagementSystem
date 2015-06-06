@@ -157,7 +157,7 @@ app.controller('bookController', ['$mdToast','$mdDialog','$scope', 'bookFactory'
                         vcRecaptchaService.reload($scope.widgetId);
                     }
               
-          }
+          };
           $scope.closeDialog = function() {
             $scope.booktmp2 = $scope.initial;
               $mdDialog.hide();
@@ -207,7 +207,7 @@ $scope.editDialog = function(book) {
               $scope.book = booktmp;
               $mdDialog.hide();
 
-          }
+          };
           $scope.closeDialog = function() {
               $mdDialog.hide();
 

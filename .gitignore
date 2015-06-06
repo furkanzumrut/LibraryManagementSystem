@@ -1,6 +1,8 @@
 logs/
+.idea
 build
 .project
 .classpath
 .settings
 .DS_Store
+librarymanagement.iml
