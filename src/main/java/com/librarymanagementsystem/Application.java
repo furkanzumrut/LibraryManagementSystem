@@ -3,9 +3,15 @@ package com.librarymanagementsystem;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory;
+import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 
 
 /**
@@ -33,7 +39,12 @@ public class Application extends SpringBootServletInitializer {
         System.setProperty("server.port", webPort);
         SpringApplication.run(Application.class, args);
     }
-
+//    @Bean
+//    public EmbeddedServletContainerFactory servletContainer() {
+//        TomcatEmbeddedServletContainerFactory factory = new TomcatEmbeddedServletContainerFactory();
+//        return factory;
+//    }
 
 }
+
  
